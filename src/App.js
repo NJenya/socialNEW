@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.module.css';
+import Header from "./ui/Header/Header";
+import Navbar from "./ui/Navbar/Navbar";
+import {BrowserRouter, Route} from "react-router-dom";
+import styles from './App.module.css'
+import Friends from "./ui/Friends/Friends";
+import Music from "./ui/Music/Music";
+import Settings from "./ui/Setings/Settings";
+import ProfileContainer from "./ui/Profile/ProfileContainer";
+import FindUsersContainer from "./ui/FindUsers/FindUsersContainer";
+import DialogsContainer from "./ui/Dialogs/DialogsContainer";
+import HeaderContainer from "./ui/Header/HeaderContainer";
+import Login from "./ui/Login/Login";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className={styles.appWrapper}>
+			<BrowserRouter>
+				<HeaderContainer />
+				<Navbar />
+				<div className={styles.content}>
+					<Route path='/profile/:userId?' render={() => <ProfileContainer />}/>
+					<Route path='/dialogs' render={() => <DialogsContainer />}/>
+					<Route path='/friends' render={() => <Friends />}/>
+					<Route path='/music' render={() => <Music />}/>
+					<Route path='/settings' render={() => <Settings />}/>
+					<Route path='/findusers' render={() => <FindUsersContainer />}/>
+					<Route path='/login' render={() => <Login />}/>
+				</div>
+			</BrowserRouter>
+		</div>
+	);
 }
 
 export default App;
