@@ -23,7 +23,7 @@ let Dialogs = (props) => {
             </span>
             <br/>
             <textarea onChange={updateText} value={props.newMessageText}/>
-            <button onClick={props.addMessage}>Send Messge</button>
+            <button onClick={props.addMessage}>Send Message</button>
         </div>
     </div>
 }

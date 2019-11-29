@@ -16,7 +16,6 @@ import Login from "./ui/Login/Login";
 function App() {
 	return (
 		<div className={styles.appWrapper}>
-			<BrowserRouter>
 				<HeaderContainer />
 				<Navbar />
 				<div className={styles.content}>
@@ -28,7 +27,6 @@ function App() {
 					<Route path='/findusers' render={() => <FindUsersContainer />}/>
 					<Route path='/login' render={() => <Login />}/>
 				</div>
-			</BrowserRouter>
 		</div>
 	);
 }

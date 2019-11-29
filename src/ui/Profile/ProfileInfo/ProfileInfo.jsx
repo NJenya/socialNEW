@@ -1,7 +1,8 @@
 import React from 'react'
 import styles from './ProfileInfo.module.css'
-import profileImage from '../../../assets/images/profileImage.jpg'
 import Preloader from "../../common/Preloader/Preloader";
+import dialogsPhoto from "../../../assets/images/AVA_logo_black_AVA-only.png";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 let ProfileInfo = (props) => {
 
@@ -10,11 +11,10 @@ let ProfileInfo = (props) => {
 	}
 
 	return <div className={styles.content}>
-		{/*<img src={profileImage}/>*/}
 		<div>
-			<img src={props.profile.photos.large} />
+			<img src={props.profile.photos.large || dialogsPhoto} alt={'ava'} />
 			<div>{props.profile.fullName}</div>
-			Ava + Description
+			<ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
 		</div>
 
 	</div>
